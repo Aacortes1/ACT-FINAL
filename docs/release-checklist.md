@@ -26,7 +26,6 @@
 
 ## Seguridad y versión
 
-- [ ] No existen secretos en Git.
 - [x] No existen secretos en Git.
 - [x] Evidencias omiten credenciales.
 - [x] README, CHANGELOG y evidencias actualizados.
