@@ -44,7 +44,12 @@ export function RegisterPage() {
 
     setIsSubmitting(true);
     try {
-      const user = await register({ name: normalizedName, email: email.trim(), password });
+      const user = await register({
+        name: normalizedName,
+        email: email.trim(),
+        password,
+        confirmPassword: confirmation,
+      });
       navigate('/login', {
         replace: true,
         state: {

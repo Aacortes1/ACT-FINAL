@@ -1,7 +1,12 @@
-const apiUrl = import.meta.env.VITE_API_URL?.trim();
+const DEFAULT_API_URL = '/api';
 
-if (!apiUrl) {
-  throw new Error('Falta la variable VITE_API_URL.');
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
+
+if (import.meta.env.DEV && !configuredApiUrl) {
+  console.warn(
+    '[config] No se encontró VITE_API_URL; se usará el valor por defecto "/api". ' +
+      'Copia .env.example a .env.local para personalizarlo.',
+  );
 }
 
-export const API_URL = apiUrl.replace(/\/$/, '');
+export const API_URL = (configuredApiUrl || DEFAULT_API_URL).replace(/\/$/, '');
